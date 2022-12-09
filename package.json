@@ -10,11 +10,14 @@
   },
   "main": "electronserver/main.js",
   "scripts": {
-    "start": "concurrently -k \"cross-env BROWSER=none npm run reactstart\" \"npm:electronstart\"",
+    "start": "concurrently -k \"cross-env BROWSER=none npm run reactstart\" \"npm run nodestart\" \"npm:electronstart\"",
+    "nodestart": "node nodeserver/index.js",
     "reactstart": "npm --prefix \"reactserver\" start",
     "electronstart": "electron ."
   },
   "dependencies": {
-    "cross-env": "^7.0.3"
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.18.2"
   }
 }
