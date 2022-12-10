@@ -1,12 +1,13 @@
 import cv2
 import numpy as np
 import torch
-
+import sys
 from helpers import init_helper, vsumm_helper, bbox_helper, video_helper
 from helpers import model_zoo
 
 def main():
-    SOURCE='./test/St_Maarten_Landing.mp4'
+    SOURCE = str(sys.argv[1])
+    # SOURCE='./test/St_Maarten_Landing.mp4'
     # load model
     print('Loading DSNet model ...')
     model = model_zoo.get_model()

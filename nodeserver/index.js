@@ -4,6 +4,7 @@ const multer = require("multer");
 const http = require("http");
 const path = require("path");
 const fs = require("fs")
+const {spawn} = require("child_process");
 
 const app = express()
 app.use(cors())
@@ -27,15 +28,15 @@ app.post("/summarize",
       fs.rename(tempPath, targetPath, err => {
         console.log("Renamed")
         if (err) return console.log(err);
-        res
-          .status(200)
+        const summarizePython=spawn("python",["nodeserver/DSNet/infer.py",tempPath]);
+
+        res.status(200)
           .contentType("text/plain")
-          .end("File uploaded!");
+          .end("File uploaded and processed!");
       });
     } else {
       fs.unlink(tempPath, err => {
         if (err) return console.log(err);
-
         res
           .status(403)
           .contentType("text/plain")
@@ -46,7 +47,21 @@ app.post("/summarize",
 
 
 app.post("/caption",(req,res)=>{
-  res.status(404).send("YET TO IMPLEMENT")
+  console.log("reqss");
+  console.log(req.query.path);
+  // console.log(req);
+
+  const childPython = spawn("python",["nodeserver/pythonscripts/imagecaption/image_captioning.py",req.query.path])
+  childPython.stdout.on("data",(data) =>{
+    console.log("stdout :"+ data);
+    res.send(data);
+  });
+
+  childPython.stderr.on("data",(data) => {
+    res.send(data);
+  });
+  
+
 })
 
 app.listen(port, () => {

@@ -227,7 +227,7 @@ def main(path):
     # print(current_directory)
     # save_path = os.path.join(os.path.dirname(current_directory))
     # os.makedirs(save_path, exist_ok=True)
-    model_path = os.path.join(os.getcwd(),"model", 'model_wieghts.pt')
+    model_path = os.path.join(os.getcwd(),"nodeserver","pythonscripts","imagecaption","model", 'model_weights.pt')
     device = CUDA(0) if is_gpu else "cpu"
     clip_model, preprocess = clip.load("ViT-B/32", device=device, jit=False)
     tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
@@ -262,9 +262,10 @@ def main(path):
     print(generated_text_prefix)
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--path')
-args = parser.parse_args()
-path = args.path
-
+# parser = argparse.ArgumentParser()
+# parser.add_argument('--path')
+# args = parser.parse_args()
+path = str(sys.argv[1])
+# print(path)
+# main("/Users/suryakiran/Downloads/im1.png")
 main(path)
