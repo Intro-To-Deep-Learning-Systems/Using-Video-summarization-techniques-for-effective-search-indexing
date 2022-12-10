@@ -4,6 +4,9 @@ import torch
 import sys
 from helpers import init_helper, vsumm_helper, bbox_helper, video_helper
 from helpers import model_zoo
+
+from ..imagecaption.image_captioning import img_caption
+from keyframe import extract_keyframes
 CPU = torch.device('cpu')
 D = torch.device
 def main():
@@ -70,6 +73,19 @@ def main():
 
     out.release()
     cap.release()
+    #new code
+    text_caption = []
+    img_list = extract_keyframes('./nodeserver/pythonscripts/DSNet/outputs/'+name)
+    for img in img_list:
+        text_caption.append(img_caption(img))
+
+    with open('captions.txt', 'w') as f:
+        for line in text_caption:
+            f.write(f"{line}\n")
+
+    print("done")
+
+
 
 
 if __name__ == '__main__':

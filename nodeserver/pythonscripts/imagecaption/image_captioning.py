@@ -211,7 +211,7 @@ def generate2(
     return generated_list[0]
 
 
-def main(path):
+def img_caption(path):
     def get_device(device_id: int) -> D:
         if not torch.cuda.is_available():
             return CPU
@@ -260,12 +260,13 @@ def main(path):
 
     print('\n')
     print(generated_text_prefix)
+    return generated_text_prefix
 
 
 # parser = argparse.ArgumentParser()
 # parser.add_argument('--path')
 # args = parser.parse_args()
-path = str(sys.argv[1])
+# path = str(sys.argv[1])
 # print(path)
 # main("/Users/suryakiran/Downloads/im1.png")
-main(path)
+# img_caption(path)
