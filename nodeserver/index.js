@@ -28,7 +28,7 @@ app.post("/summarize",
       fs.rename(tempPath, targetPath, err => {
         console.log("Renamed")
         if (err) return console.log(err);
-        const summarizePython=spawn("python",["nodeserver/DSNet/infer.py",tempPath]);
+        const summarizePython=spawn("python",["nodeserver/pythonscripts/DSNet/infer.py",tempPath]);
 
         res.status(200)
           .contentType("text/plain")

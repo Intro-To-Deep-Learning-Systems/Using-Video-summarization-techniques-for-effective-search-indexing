@@ -4,15 +4,26 @@ import torch
 import sys
 from helpers import init_helper, vsumm_helper, bbox_helper, video_helper
 from helpers import model_zoo
-
+CPU = torch.device('cpu')
+D = torch.device
 def main():
     SOURCE = str(sys.argv[1])
-    # SOURCE='./test/St_Maarten_Landing.mp4'
+    name = SOURCE.split("/")[-1]
+    # SOURCE='/Users/suryakiran/Downloads/using-video-summarization-techniques-for-effective-search-indexing/nodeserver/uploaded/files/image1670660437740.mp4'
     # load model
     print('Loading DSNet model ...')
+    # def get_device(device_id: int) -> D:
+    #     if not torch.cuda.is_available():
+    #         return CPU
+    #     device_id = min(torch.cuda.device_count() - 1, device_id)
+    #     return torch.device(f'cuda:{device_id}')
+
+    # is_gpu = False
+    # CUDA = get_device
+    # device = CUDA(0) if is_gpu else "cpu"
     model = model_zoo.get_model()
-    model = model.eval().to('cuda')
-    state_dict = torch.load('./model/summe.yml.4.pt',
+    model = model.eval().to("cuda")
+    state_dict = torch.load('./nodeserver/pythonscripts/DSNet/model/summe.yml.4.pt',
                             map_location=lambda storage, loc: storage)
     model.load_state_dict(state_dict)
 
@@ -44,7 +55,7 @@ def main():
 
     # create summary video writer
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    out = cv2.VideoWriter('./outputs/t2.mp4', fourcc, fps, (width, height))
+    out = cv2.VideoWriter('./outputs/'+name, fourcc, fps, (width, height))
 
     frame_idx = 0
     while True:

@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /nodeserver/pythonscripts/imagecaption/model/model_weights.pt
+
+/nodeserver/uploaded/*
