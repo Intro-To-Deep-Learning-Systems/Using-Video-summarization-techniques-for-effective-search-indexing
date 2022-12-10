@@ -5,6 +5,7 @@ import numpy as np
 import torch
 import torch.nn.functional as nnf
 import sys
+import argparse
 from typing import Tuple, List, Union, Optional
 from transformers import GPT2Tokenizer, GPT2LMHeadModel, AdamW, get_linear_schedule_with_warmup
 from tqdm import tqdm, trange
@@ -219,12 +220,14 @@ def main(path):
 
     is_gpu = False
     CUDA = get_device
+    
+    # parser.add_argument('--out_dir', default='./checkpoints')
 
     # model_path = os.getcwd()
     # print(current_directory)
     # save_path = os.path.join(os.path.dirname(current_directory))
     # os.makedirs(save_path, exist_ok=True)
-    model_path = os.path.join(os.getcwd(), 'model_wieghts.pt')
+    model_path = os.path.join(os.getcwd(),"model", 'model_wieghts.pt')
     device = CUDA(0) if is_gpu else "cpu"
     clip_model, preprocess = clip.load("ViT-B/32", device=device, jit=False)
     tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
@@ -259,6 +262,9 @@ def main(path):
     print(generated_text_prefix)
 
 
-path = os.path.join(os.getcwd(), "sample2.jpeg")
+parser = argparse.ArgumentParser()
+parser.add_argument('--path')
+args = parser.parse_args()
+path = args.path
 
 main(path)
