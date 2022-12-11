@@ -32,7 +32,7 @@ class App extends Component {
      
       // Request made to the backend api
       // Send formData object
-      axios.post(" http://localhost:3001/summarize", formData);
+      axios.post("http://localhost:3001/summarize", formData);
     };
      
     // File content to be displayed after
