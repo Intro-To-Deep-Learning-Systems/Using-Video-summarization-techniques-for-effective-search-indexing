@@ -5,6 +5,7 @@ const http = require("http");
 const path = require("path");
 const fs = require("fs")
 const {spawn} = require("child_process");
+const axios = require('axios')
 
 const app = express()
 app.use(cors())
@@ -26,13 +27,17 @@ app.post("/summarize",
 
     if (path.extname(req.file.originalname).toLowerCase() === ".mp4") {
       fs.rename(tempPath, targetPath, err => {
-        console.log("Renamed")
+        console.log("Renamed",targetPath)
         if (err) return console.log(err);
-        const summarizePython=spawn("python",["nodeserver/pythonscripts/DSNet/infer.py",tempPath]);
+        axios.post("http://127.0.0.1:5000/dynamicsummary",{
+          params:targetPath
+        }).then((resp)=>{
+          console.log(resp.data)
+          res.send(resp.data);
+        }).catch(err => console.log(err))
+        // const summarizePython=spawn("python",["nodeserver/pythonscripts/DSNet/infer.py",tempPath]);
 
-        res.status(200)
-          .contentType("text/plain")
-          .end("File uploaded and processed!");
+        
       });
     } else {
       fs.unlink(tempPath, err => {
