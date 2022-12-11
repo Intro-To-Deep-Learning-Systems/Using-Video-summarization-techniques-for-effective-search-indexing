@@ -1,7 +1,8 @@
 from Katna.video import Video
 from Katna.writer import KeyFrameDiskWriter
 import os
-if __name__ == "__main__":
+
+def extract_keyframes(filename):
     vd = Video()
     no_of_frames_to_returned = 12
 
@@ -9,7 +10,7 @@ if __name__ == "__main__":
     diskwriter = KeyFrameDiskWriter(location="selectedframes")
 
     # Video file path
-    video_file_path = os.path.join("..","..", "uploaded", "files", "image1670653463040.mp4")
+    video_file_path = filename
 
     print(f"Input video file path = {video_file_path}")
 
