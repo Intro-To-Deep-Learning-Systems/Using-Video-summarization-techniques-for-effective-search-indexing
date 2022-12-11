@@ -23,9 +23,8 @@ class App extends Component {
      
       // Update the formData object
       formData.append(
-        "myFile",
-        this.state.selectedFile,
-        this.state.selectedFile.name
+        "video",
+        this.state.selectedFile
       );
      
       // Details of the uploaded file
@@ -33,7 +32,7 @@ class App extends Component {
      
       // Request made to the backend api
       // Send formData object
-      axios.post("/summarize", formData);
+      axios.post(" http://localhost:3001/summarize", formData);
     };
      
     // File content to be displayed after
