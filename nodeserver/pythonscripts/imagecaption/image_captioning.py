@@ -211,7 +211,8 @@ def generate2(
     return generated_list[0]
 
 
-def img_caption(path):
+def img_caption(filepath):
+    print(filepath, file=sys.stderr)
     def get_device(device_id: int) -> D:
         if not torch.cuda.is_available():
             return CPU
@@ -243,11 +244,12 @@ def img_caption(path):
     model = model.to(device)
 
     use_beam_search = True  
-    image = io.imread(path)
+    image = io.imread(filepath)
     pil_image = PIL.Image.fromarray(image)
 
     # display(pil_image)
-
+    import time
+    start=time.time()
     image = preprocess(pil_image).unsqueeze(0).to(device)
     with torch.no_grad():
         prefix = clip_model.encode_image(image).to(device, dtype=torch.float32)
@@ -257,9 +259,15 @@ def img_caption(path):
     else:
         generated_text_prefix = generate2(model, tokenizer, embed=prefix_embed)
 
+    end=time.time()
+
+    
+
 
     print('\n')
-    print(generated_text_prefix)
+    print(str(end-start), file=sys.stderr)
+
+    print(generated_text_prefix, file=sys.stderr)
     return generated_text_prefix
 
 

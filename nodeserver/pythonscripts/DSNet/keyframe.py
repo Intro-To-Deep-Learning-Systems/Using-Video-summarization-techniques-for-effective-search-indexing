@@ -16,10 +16,12 @@ def extract_keyframes(video_file_path):
         writer=diskwriter
     )
 
-    file_name = video_file_path.split("/")[-1]
+    file_name = video_file_path.split(os.sep)[-1]
     file_name = file_name.split(".")[0]
     file_names = []
+
     for i in range(no_of_frames_to_returned):
+        print("Returned",i)
         file_names.append("./nodeserver/uploaded/keyframes/"+file_name+"_"+str(i)+".jpeg")
 
     return file_names
