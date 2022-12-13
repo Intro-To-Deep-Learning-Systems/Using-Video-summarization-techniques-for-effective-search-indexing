@@ -97,8 +97,10 @@ def dynamicsummary():
         text_caption.append(img_caption(img))
 
     keywords = extract_keywords(text_caption)
-    with open('/nodeserver/pythonscripts/DSNet/outputs/captions_'+name+'.txt', 'w') as f:
-        f.write(f"{keywords}\n")
+
+    link = name +","+str(keywords)
+    with open('/nodeserver/pythonscripts/DSNet/outputs/captions.txt', 'a') as f:
+        f.write(f"{link}\n")
     print("done")
 
 
