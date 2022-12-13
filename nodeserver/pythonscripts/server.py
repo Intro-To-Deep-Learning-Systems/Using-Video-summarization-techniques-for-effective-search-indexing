@@ -12,7 +12,7 @@ CPU = torch.device('cpu')
 GPU= torch.device('cuda')
 D = torch.device
 from imagecaption.image_captioning import img_caption
-
+from ExpansionNet.captionpipeline import getCaptions
 app = Flask(__name__)
 
 @app.route("/")
@@ -79,8 +79,15 @@ def dynamicsummary():
     #new code
     text_caption = []
     img_list = extract_keyframes(os.path.abspath('./nodeserver/pythonscripts/DSNet/outputs/summaryof'+name))
-    for img in img_list:
-        text_caption.append(img_caption(img))
+
+    MODE="EXPANSIONNET" #EXPANSIONNET or CLIPCLAP
+
+    if(MODE=="EXPANSIONNET"):
+        text_caption=getCaptions(img_list)
+        pass
+    else:
+        for img in img_list:
+            text_caption.append(img_caption(img))
 
     with open('captions.txt', 'w') as f:
         for line in text_caption:

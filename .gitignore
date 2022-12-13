@@ -25,3 +25,7 @@ yarn-error.log*
 /nodeserver/pythonscripts/imagecaption/model/model_weights.pt
 
 /nodeserver/uploaded/*
+nodeserver/pythonscripts/ExpansionNet/rf_model.pth
+./nodeserver/pythonscripts/ExpansionNet/rf_model.pth
+
+rf_model.pth
