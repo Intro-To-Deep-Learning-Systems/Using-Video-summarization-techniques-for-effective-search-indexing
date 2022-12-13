@@ -18,16 +18,24 @@ def extract_keyframes(video_file_path):
 
     file_name = video_file_path.split(os.sep)[-1]
     file_name = file_name.split(".")[0]
-    file_names = []
+    path = os.path.join(".","nodeserver","uploaded","keyframes")
+    files = []
+    for i in os.listdir(path):
+        if os.path.isfile(os.path.join(path,i)) and file_name in i:
+            files.append(os.path.join(path,i))
 
-    for i in range(no_of_frames_to_returned):
-        print("Returned",i)
-        file_names.append("./nodeserver/uploaded/keyframes/"+file_name+"_"+str(i)+".jpeg")
+    return files
 
-    return file_names
+if __name__ == '__main__':
+    video_file_path = os.path.join("/Users/suryakiran/Downloads/using-video-summarization-techniques-for-effective-search-indexing/nodeserver/uploaded/files/image1670736476063.mp4")
+    a = extract_keyframes(video_file_path)
+    print(a)
 
-# if __name__ == '__main__':
-#     video_file_path = os.path.join("/Users/suryakiran/Downloads/using-video-summarization-techniques-for-effective-search-indexing/nodeserver/uploaded/files/image1670653463040.mp4")
-#     a = extract_keyframes(video_file_path)
-#     print(a)
+# import os
+# path = os.path.join(".","nodeserver","uploaded","keyframes")
+# files = []
+# for i in os.listdir(path):
+#     if os.path.isfile(os.path.join(path,i)) and 'image1670736476063' in i:
+#         files.append(os.path.join(path,i))
 
+# print(files)
