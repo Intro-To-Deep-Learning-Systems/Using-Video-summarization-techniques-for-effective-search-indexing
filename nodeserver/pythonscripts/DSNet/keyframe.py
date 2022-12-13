@@ -26,16 +26,7 @@ def extract_keyframes(video_file_path):
 
     return files
 
-if __name__ == '__main__':
-    video_file_path = os.path.join("/Users/suryakiran/Downloads/using-video-summarization-techniques-for-effective-search-indexing/nodeserver/uploaded/files/image1670736476063.mp4")
-    a = extract_keyframes(video_file_path)
-    print(a)
-
-# import os
-# path = os.path.join(".","nodeserver","uploaded","keyframes")
-# files = []
-# for i in os.listdir(path):
-#     if os.path.isfile(os.path.join(path,i)) and 'image1670736476063' in i:
-#         files.append(os.path.join(path,i))
-
-# print(files)
+# if __name__ == '__main__':
+#     video_file_path = os.path.join("/Users/suryakiran/Downloads/using-video-summarization-techniques-for-effective-search-indexing/nodeserver/uploaded/files/image1670736476063.mp4")
+#     a = extract_keyframes(video_file_path)
+#     print(a)
