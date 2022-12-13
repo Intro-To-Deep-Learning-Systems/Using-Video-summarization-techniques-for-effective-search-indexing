@@ -7,23 +7,14 @@ from helpers import model_zoo
 
 from ..imagecaption.image_captioning import img_caption
 from keyframe import extract_keyframes
+from extract_keywords import extract_keywords
+
 CPU = torch.device('cpu')
 D = torch.device
 def main():
     SOURCE = str(sys.argv[1])
     name = SOURCE.split("/")[-1]
-    # SOURCE='/Users/suryakiran/Downloads/using-video-summarization-techniques-for-effective-search-indexing/nodeserver/uploaded/files/image1670660437740.mp4'
-    # load model
     print('Loading DSNet model ...')
-    # def get_device(device_id: int) -> D:
-    #     if not torch.cuda.is_available():
-    #         return CPU
-    #     device_id = min(torch.cuda.device_count() - 1, device_id)
-    #     return torch.device(f'cuda:{device_id}')
-
-    # is_gpu = False
-    # CUDA = get_device
-    # device = CUDA(0) if is_gpu else "cpu"
     model = model_zoo.get_model()
     model = model.eval().to("cuda")
     state_dict = torch.load('./nodeserver/pythonscripts/DSNet/model/summe.yml.4.pt',
@@ -79,10 +70,10 @@ def main():
     for img in img_list:
         text_caption.append(img_caption(img))
 
+    keywords = extract_keywords(text_caption)
     with open('captions.txt', 'w') as f:
-        for line in text_caption:
+        for line in keywords:
             f.write(f"{line}\n")
-
     print("done")
 
 
