@@ -71,7 +71,7 @@ def main():
         text_caption.append(img_caption(img))
 
     keywords = extract_keywords(text_caption)
-    with open('captions.txt', 'w') as f:
+    with open('/nodeserver/pythonscripts/DSNet/outputs/captions_'+name+'.txt', 'w') as f:
         for line in keywords:
             f.write(f"{line}\n")
     print("done")
