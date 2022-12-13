@@ -5,8 +5,8 @@ import pickle
 from argparse import Namespace
 
 from PIL import Image as PIL_Image
-from models.End_ExpansionNet_v2 import End_ExpansionNet_v2
-from utils.language_utils import convert_vector_idx2word
+from ExpansionNet.models.End_ExpansionNet_v2 import End_ExpansionNet_v2
+from ExpansionNet.utils.language_utils import convert_vector_idx2word
 
 def getCaptions(image_paths):
     captions=[]
@@ -21,14 +21,14 @@ def getCaptions(image_paths):
     N_dec=3
     max_seq_len=74
     beam_size=5
-    load_path='./rf_model.pth'
+    load_path='./nodeserver/pythonscripts/ExpansionNet/rf_model.pth'
     model_args = Namespace(model_dim=model_dim,
                            N_enc=N_enc,
                            N_dec=N_dec,
                            dropout=0.0,
                            drop_args=drop_args)
 
-    with open('./demo_coco_tokens.pickle', 'rb') as f:
+    with open('./nodeserver/pythonscripts/ExpansionNet/demo_coco_tokens.pickle', 'rb') as f:
         coco_tokens = pickle.load(f)
     print("Dictionary loaded ...")
 

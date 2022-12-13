@@ -12,6 +12,7 @@ node_modules# See https://help.github.com/articles/ignoring-files/ for more abou
 /build
 
 # misc
+*/__pycache__
 .DS_Store
 .env.local
 .env.development.local
