@@ -72,12 +72,8 @@ def main():
 
     keywords = extract_keywords(text_caption)
     with open('/nodeserver/pythonscripts/DSNet/outputs/captions_'+name+'.txt', 'w') as f:
-        # for line in keywords:
         f.write(f"{keywords}\n")
     print("done")
-
-
-
 
 if __name__ == '__main__':
     main()

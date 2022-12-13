@@ -13,6 +13,8 @@ GPU= torch.device('cuda')
 D = torch.device
 from imagecaption.image_captioning import img_caption
 from ExpansionNet.captionpipeline import getCaptions
+from extract_keywords import extract_keywords
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -89,9 +91,16 @@ def dynamicsummary():
         for img in img_list:
             text_caption.append(img_caption(img))
 
-    with open('captions.txt', 'w') as f:
-        for line in text_caption:
-            f.write(f"{line}\n")
+    text_caption = []
+    img_list = extract_keyframes('./nodeserver/pythonscripts/DSNet/outputs/'+name)
+    for img in img_list:
+        text_caption.append(img_caption(img))
 
+    keywords = extract_keywords(text_caption)
+    with open('/nodeserver/pythonscripts/DSNet/outputs/captions_'+name+'.txt', 'w') as f:
+        f.write(f"{keywords}\n")
     print("done")
+
+
+    # print("done")
     return request.get_json()["params"]
