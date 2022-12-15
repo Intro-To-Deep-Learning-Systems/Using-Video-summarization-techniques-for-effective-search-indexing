@@ -28,5 +28,6 @@ yarn-error.log*
 /nodeserver/uploaded/*
 nodeserver/pythonscripts/ExpansionNet/rf_model.pth
 ./nodeserver/pythonscripts/ExpansionNet/rf_model.pth
+/nodeserver/pythonscripts/DSNet/outputs/*
 
 rf_model.pth

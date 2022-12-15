@@ -86,20 +86,20 @@ def dynamicsummary():
 
     if(MODE=="EXPANSIONNET"):
         text_caption=getCaptions(img_list)
-        pass
+
     else:
         for img in img_list:
             text_caption.append(img_caption(img))
 
-    text_caption = []
-    img_list = extract_keyframes('./nodeserver/pythonscripts/DSNet/outputs/'+name)
-    for img in img_list:
-        text_caption.append(img_caption(img))
+            # text_caption = []
+            # img_list = extract_keyframes('./nodeserver/pythonscripts/DSNet/outputs/'+name)
+            # for img in img_list:
+            #     text_caption.append(img_caption(img))
 
     keywords = extract_keywords(text_caption)
 
     link = name +","+str(keywords)
-    with open('/nodeserver/pythonscripts/DSNet/outputs/captions.txt', 'a') as f:
+    with open(os.path.abspath('./nodeserver/pythonscripts/DSNet/outputs/captions.txt'), 'a') as f:
         f.write(f"{link}\n")
     print("done")
 

@@ -3,7 +3,7 @@ import torchvision
 import argparse
 import pickle
 from argparse import Namespace
-
+import sys
 from PIL import Image as PIL_Image
 from ExpansionNet.models.End_ExpansionNet_v2 import End_ExpansionNet_v2
 from ExpansionNet.utils.language_utils import convert_vector_idx2word
@@ -92,5 +92,5 @@ def getCaptions(image_paths):
         print(path + ') \n\tDescription: ' + pred + '\n')
         captions.append(pred)
     end = time.time()
-    print(end-start)
+    print("TIME TAKEN:",end-start, file=sys.stderr)
     return pred
