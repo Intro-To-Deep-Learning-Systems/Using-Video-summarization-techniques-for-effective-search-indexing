@@ -219,7 +219,7 @@ def img_caption(filepath):
         device_id = min(torch.cuda.device_count() - 1, device_id)
         return torch.device(f'cuda:{device_id}')
 
-    is_gpu = False
+    is_gpu = True
     CUDA = get_device
     
     # parser.add_argument('--out_dir', default='./checkpoints')
@@ -265,10 +265,10 @@ def img_caption(filepath):
 
 
     print('\n')
-    print(str(end-start), file=sys.stderr)
+    print("Time Taken",str(end-start), file=sys.stderr)
 
     print(generated_text_prefix, file=sys.stderr)
-    return generated_text_prefix
+    return str(generated_text_prefix)
 
 
 # parser = argparse.ArgumentParser()

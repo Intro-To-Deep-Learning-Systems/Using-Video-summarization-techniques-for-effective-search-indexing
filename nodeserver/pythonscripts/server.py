@@ -82,7 +82,7 @@ def dynamicsummary():
     text_caption = []
     img_list = extract_keyframes(os.path.abspath('./nodeserver/pythonscripts/DSNet/outputs/summaryof'+name))
 
-    MODE="EXPANSIONNET" #EXPANSIONNET or CLIPCLAP
+    MODE="CLIPCLAP" #EXPANSIONNET or CLIPCLAP
 
     if(MODE=="EXPANSIONNET"):
         text_caption=getCaptions(img_list)

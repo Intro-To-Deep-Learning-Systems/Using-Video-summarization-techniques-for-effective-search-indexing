@@ -92,5 +92,5 @@ def getCaptions(image_paths):
         print(path + ') \n\tDescription: ' + pred + '\n')
         captions.append(pred)
     end = time.time()
-    print("TIME TAKEN:",end-start, file=sys.stderr)
-    return pred
+    print("TIME TAKEN:",end-start,"for ",len(input_images), file=sys.stderr)
+    return captions
