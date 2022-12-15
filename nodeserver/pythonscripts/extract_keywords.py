@@ -8,12 +8,9 @@ import sys
 def extract_keywords(text):
     print(text,file=sys.stderr)
     stop_words = set(stopwords.words('english'))
-    # print(stop_words,file=sys.err)
     word_tokens = []
     for i in text:
         word_tokens = word_tokens+word_tokenize(i)
-    # filtered_sentence = []
-    # for i in text:
     print(word_tokens,file=sys.stderr)
     filtered_sentence= [w for w in word_tokens if not w.lower() in stop_words]
     print(filtered_sentence,file=sys.stderr)
