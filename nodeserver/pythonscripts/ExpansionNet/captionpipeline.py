@@ -89,7 +89,7 @@ def getCaptions(image_paths):
         pred = convert_vector_idx2word(pred[0][0], coco_tokens['idx2word_list'])[1:-1]
         pred[-1] = pred[-1] + '.'
         pred = ' '.join(pred).capitalize()
-        print(path + ') \n\tDescription: ' + pred + '\n')
+        print(path + ') \n\tDescription: ' + pred + '\n', file=sys.stderr)
         captions.append(pred)
     end = time.time()
     print("TIME TAKEN:",end-start,"for ",len(input_images), file=sys.stderr)

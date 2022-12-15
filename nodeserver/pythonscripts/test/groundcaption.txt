@@ -8,3 +8,28 @@
 9743494618_f0faea1cdc_z.jpg : a long railroad train carrying several cars behind it
 8700354838_884967117d_z.jpg : a man on a motor bike on a street.
 9362545580_34d972390d_z.jpg : a jumbo jet airplane coming in for a landing on a runway.
+
+## ClipClap
+elephants in the wild 
+tennis player in action during his first round match against tennis player
+aerial view of the port.
+person, left, and person look at each other in the locker room.
+cattle graze in a pasture
+passengers boarding a bus at a bus station.
+a train on the line.
+a train passes through australian local government area.
+a police officer on a scooter.
+aircraft model on the runway.
+
+## ExpansionNet
+
+Two elephants walking in the grass in a field.
+A man holding a tennis racket on a tennis court.
+A group of boats are parked in the water at a beach.
+Two men in ties standing in front of a bathroom mirror.
+A herd of cows grazing in a field.
+A group of people standing on top of a car with a bus.
+A train is on the tracks at a train station.
+A train is on the tracks in a field.
+A police officer riding a motorcycle on a city street.
+A large airplane taking off from an airport runway.

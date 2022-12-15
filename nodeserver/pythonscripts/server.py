@@ -81,8 +81,6 @@ def dynamicsummary():
     #new code
     text_caption = []
     img_list = extract_keyframes(os.path.abspath('./nodeserver/pythonscripts/DSNet/outputs/summaryof'+name))
-    img_list=[os.path.abspath('./nodeserver/pythonscripts/DSNet/outputs/summaryof')]
-
     '''
     #TEST MODE
     img_list=[os.path.abspath('./nodeserver/pythonscripts/test/5155093236_01067e4f6e_z.jpg'),
@@ -97,7 +95,17 @@ def dynamicsummary():
                 os.path.abspath('./nodeserver/pythonscripts/test/9362545580_34d972390d_z.jpg')]
 
     '''
-    MODE="CLIPCLAP" #EXPANSIONNET or CLIPCLAP
+    img_list=[os.path.abspath('./nodeserver/pythonscripts/test/5155093236_01067e4f6e_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test/2633528304_369cf89ce1_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test/9874637964_ce338575f0_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test/1176519574_b4d569ecbe_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test/5093961450_d8c840d0d2_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test/9372536208_b97bc7eeff_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test/9419081044_7cebf902ec_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test/9743494618_f0faea1cdc_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test/8700354838_884967117d_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test/9362545580_34d972390d_z.jpg')]
+    MODE="EXPANSIONNET" #EXPANSIONNET or CLIPCLAP
 
     if(MODE=="EXPANSIONNET"):
         text_caption=getCaptions(img_list)
