@@ -81,7 +81,22 @@ def dynamicsummary():
     #new code
     text_caption = []
     img_list = extract_keyframes(os.path.abspath('./nodeserver/pythonscripts/DSNet/outputs/summaryof'+name))
+    img_list=[os.path.abspath('./nodeserver/pythonscripts/DSNet/outputs/summaryof')]
 
+    '''
+    #TEST MODE
+    img_list=[os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),
+                os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),
+                os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),
+                os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),
+                os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),
+                os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),
+                os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),
+                os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),
+                os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),
+                os.path.abspath('./nodeserver/pythonscripts/test/summaryof'),]
+
+    '''
     MODE="CLIPCLAP" #EXPANSIONNET or CLIPCLAP
 
     if(MODE=="EXPANSIONNET"):
@@ -95,8 +110,7 @@ def dynamicsummary():
             # img_list = extract_keyframes('./nodeserver/pythonscripts/DSNet/outputs/'+name)
             # for img in img_list:
             #     text_caption.append(img_caption(img))
-    text_caption = set(text_caption) 
-    text_caption = list(text_caption)
+
     keywords = extract_keywords(text_caption)
 
     link = name +","+str(keywords)
