@@ -95,7 +95,8 @@ def dynamicsummary():
             # img_list = extract_keyframes('./nodeserver/pythonscripts/DSNet/outputs/'+name)
             # for img in img_list:
             #     text_caption.append(img_caption(img))
-
+    text_caption = set(text_caption) 
+    text_caption = list(text_caption)
     keywords = extract_keywords(text_caption)
 
     link = name +","+str(keywords)
