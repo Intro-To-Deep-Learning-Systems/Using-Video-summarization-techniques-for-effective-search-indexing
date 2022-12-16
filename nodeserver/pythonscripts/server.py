@@ -95,19 +95,19 @@ def dynamicsummary():
                 os.path.abspath('./nodeserver/pythonscripts/test/9362545580_34d972390d_z.jpg')]
 
     '''
-    img_list=[os.path.abspath('./nodeserver/pythonscripts/test2/5485180146_5de595f352_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test2/8214231212_7d3ed4ec5f_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test2/5126051354_4265ae0dc2_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test2/5357285163_a24a1218a2_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test2/4826364673_e1d2fe0d7a_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test2/7359571760_37321faa50_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test2/8484957526_9a1a9a8598_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test2/4603398792_6bb6898455_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test2/7158482064_92f2821812_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test2/5225530351_c7b8987e0a_z.jpg')]
+    # img_list=[os.path.abspath('./nodeserver/pythonscripts/test2/5485180146_5de595f352_z.jpg'),
+    #             os.path.abspath('./nodeserver/pythonscripts/test2/8214231212_7d3ed4ec5f_z.jpg'),
+    #             os.path.abspath('./nodeserver/pythonscripts/test2/5126051354_4265ae0dc2_z.jpg'),
+    #             os.path.abspath('./nodeserver/pythonscripts/test2/5357285163_a24a1218a2_z.jpg'),
+    #             os.path.abspath('./nodeserver/pythonscripts/test2/4826364673_e1d2fe0d7a_z.jpg'),
+    #             os.path.abspath('./nodeserver/pythonscripts/test2/7359571760_37321faa50_z.jpg'),
+    #             os.path.abspath('./nodeserver/pythonscripts/test2/8484957526_9a1a9a8598_z.jpg'),
+    #             os.path.abspath('./nodeserver/pythonscripts/test2/4603398792_6bb6898455_z.jpg'),
+    #             os.path.abspath('./nodeserver/pythonscripts/test2/7158482064_92f2821812_z.jpg'),
+    #             os.path.abspath('./nodeserver/pythonscripts/test2/5225530351_c7b8987e0a_z.jpg')]
     MODE="EXPANSIONNET" #EXPANSIONNET or CLIPCLAP
 
-    if(MODE=="CLIPCLAP"):
+    if(MODE=="EXPANSIONNET"):
         text_caption=getCaptions(img_list)
 
     else:
