@@ -95,24 +95,25 @@ def dynamicsummary():
                 os.path.abspath('./nodeserver/pythonscripts/test/9362545580_34d972390d_z.jpg')]
 
     '''
-    img_list=[os.path.abspath('./nodeserver/pythonscripts/test/5155093236_01067e4f6e_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test/2633528304_369cf89ce1_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test/9874637964_ce338575f0_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test/1176519574_b4d569ecbe_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test/5093961450_d8c840d0d2_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test/9372536208_b97bc7eeff_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test/9419081044_7cebf902ec_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test/9743494618_f0faea1cdc_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test/8700354838_884967117d_z.jpg'),
-                os.path.abspath('./nodeserver/pythonscripts/test/9362545580_34d972390d_z.jpg')]
+    img_list=[os.path.abspath('./nodeserver/pythonscripts/test2/5485180146_5de595f352_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test2/8214231212_7d3ed4ec5f_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test2/5126051354_4265ae0dc2_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test2/5357285163_a24a1218a2_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test2/4826364673_e1d2fe0d7a_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test2/7359571760_37321faa50_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test2/8484957526_9a1a9a8598_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test2/4603398792_6bb6898455_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test2/7158482064_92f2821812_z.jpg'),
+                os.path.abspath('./nodeserver/pythonscripts/test2/5225530351_c7b8987e0a_z.jpg')]
     MODE="EXPANSIONNET" #EXPANSIONNET or CLIPCLAP
 
-    if(MODE=="EXPANSIONNET"):
+    if(MODE=="CLIPCLAP"):
         text_caption=getCaptions(img_list)
 
     else:
         for img in img_list:
             text_caption.append(img_caption(img))
+            print(text_caption,file=sys.stderr)
 
             # text_caption = []
             # img_list = extract_keyframes('./nodeserver/pythonscripts/DSNet/outputs/'+name)
