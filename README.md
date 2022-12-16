@@ -29,6 +29,7 @@ Simple! I will break this into 5 steps:
 4) `pip install -r requirements.txt` to install python modules
 5) `npm start` to start the electron app!
 
+The keywords for video will be written to `nodeserver\pythonscripts\DSNet\outputs\captions.txt`
 ## Experiments and Evaluations
 
 For detailed evaluations, please refer to [comparisons.ipynb](comparisons.ipynb). Evaluations include:
