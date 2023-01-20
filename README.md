@@ -1,4 +1,4 @@
-## Video Summarization Techniques for effective summarization
+## Video Summarization Techniques for effective search indexing
 
 ## What's this?
 Simple! I will break this into 5 steps:
